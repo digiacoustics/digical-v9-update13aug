@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGICAL Pro - Powered by Digi Acoustics</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="app-container" id="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1>DIGICAL Pro</h1>
+            <p class="tagline">Powered by Digi Acoustics</p>
+        </header>
+
+        <!-- Project Details Section -->
+        <section class="project-details">
+            <h2>Project Details</h2>
+            <div class="input-group">
+                <label for="projectName">Project Name</label>
+                <input type="text" id="projectName" placeholder="Enter project name">
+            </div>
+            <div class="input-group">
+                <label for="clientName">Client Name</label>
+                <input type="text" id="clientName" placeholder="Enter client name">
+            </div>
+            <div class="input-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" placeholder="Enter location">
+            </div>
+        </section>
+
+        <!-- Room Management Section -->
+        <section class="room-management">
+            <div class="room-header">
+                <h2>Room Management</h2>
+                <button class="add-room-btn" onclick="addRoom()">+ Add Room</button>
+            </div>
+            <div class="room-tabs" id="roomTabs"></div>
+        </section>
+
+        <!-- Room Data Input Section -->
+        <section class="room-data" id="roomData">
+            <div class="room-form" id="roomForm">
+                <!-- Room form will be dynamically generated -->
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results" id="results">
+            <h2>Calculation Results</h2>
+            <div class="room-results" id="roomResults"></div>
+            <div class="project-summary" id="projectSummary"></div>
+        </section>
+
+        <!-- Notes Section -->
+        <section class="notes-section" id="notesSection" style="display: none;">
+            <h2>Project Notes</h2>
+            <textarea id="projectNotes" placeholder="Add project-specific notes..."></textarea>
+            <button class="btn btn-save" onclick="saveNotes()">Save Notes</button>
+            <button class="btn btn-reset" onclick="closeNotes()">Close</button>
+        </section>
+
+        <!-- Action Buttons -->
+        <section class="action-buttons">
+            <button class="btn btn-calculate" onclick="calculateAll()">Calculate</button>
+            <button class="btn btn-save" onclick="saveProject()">Save</button>
+            <button class="btn btn-notes" onclick="toggleNotes()">Notes</button>
+            <button class="btn btn-share" onclick="shareResults()">Share</button>
+            <button class="btn btn-reset" onclick="resetAll()">Reset</button>
+            <button class="btn btn-screenshot" onclick="takeScreenshot()">Screenshot</button>
+            <button class="btn btn-pdf" onclick="exportPDF()">Export PDF</button>
+            <button class="btn btn-load" onclick="loadProject()">Load Project</button>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Created with DIGICAL by Digi Acoustics</p>
+            <p id="timestamp"></p>
+        </footer>
+    </div>
+
+    <!-- Load Project Modal -->
+    <div class="modal" id="loadModal">
+        <div class="modal-content">
+            <h3>Load Saved Project</h3>
+            <div id="savedProjectsList"></div>
+            <button class="btn btn-reset" onclick="closeLoadModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
